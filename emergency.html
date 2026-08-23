@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Emergency — Pune Ganeshotsav 2026</title>
+<meta name="description" content="Emergency helpline numbers and nearby help for the Pune Ganeshotsav.">
+<meta name="theme-color" content="#AA3D1E">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23C36D30'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%23AA3D1E' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  .contact-card.is-placeholder { opacity: 0.6; }
+  .contact-card .btn[aria-disabled="true"] {
+    background: var(--line);
+    color: var(--ink-soft);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body data-page="emergency">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <span class="brand-badge" aria-hidden="true"><img src="images/kunal-tilak-cutout.png" alt=""></span>
+      Pune Ganeshotsav 2026
+    </a>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <form class="nav-search-wrap" id="header-search-form">
+        <label class="visually-hidden" for="header-search">Search guide</label>
+        <input id="header-search" class="header-search-input" type="search" data-i18n-placeholder="header.search.placeholder" placeholder="Search guide…">
+      </form>
+      <ul>
+        <li><a href="index.html" data-page="home" data-i18n="nav.home">Home</a></li>
+        <li><a href="mandals.html" data-page="mandals" data-i18n="nav.mandals">Mandals</a></li>
+        <li><a href="parking.html" data-page="parking" data-i18n="nav.parking">Parking</a></li>
+        <li><a href="food.html" data-page="food" data-i18n="nav.food">Food Guide</a></li>
+        <li><a href="map.html" data-page="map" data-i18n="nav.map">Map</a></li>
+        <li><a href="emergency.html" data-page="emergency" class="nav-emergency" data-i18n="nav.emergency">Emergency</a></li>
+      </ul>
+    </nav>
+    <div class="header-utils">
+      <label class="visually-hidden" for="lang-select-1">Language</label>
+      <select id="lang-select-1" class="lang-select">
+        <option value="en">EN</option>
+        <option value="hi">हिं</option>
+        <option value="mr">मर</option>
+      </select>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="page-hero">
+    <div class="container">
+      <h1 data-i18n="emergency.hero.title">Emergency</h1>
+      <p data-i18n="emergency.hero.subtitle">Helpline numbers and nearby help, one tap away.</p>
+    </div>
+  </div>
+
+  <section class="section" style="padding-bottom:0;">
+    <div class="container">
+      <h3 data-i18n="emergency.section.nearest">Find Nearest Help</h3>
+      <p class="field-hint" style="margin-bottom:12px;" data-i18n="emergency.nearest.subtitle">Uses your device location to open real-time results in Google Maps — nothing is stored.</p>
+      <div id="nearest-status" class="status-msg" role="status" aria-live="polite"></div>
+      <div class="hero-actions" style="margin-bottom:32px;">
+        <button type="button" class="btn btn-berry nearest-btn" data-query="hospital">
+          <span data-i18n="emergency.nearest.hospital">Nearest Hospital</span>
+        </button>
+        <button type="button" class="btn btn-berry nearest-btn" data-query="police station">
+          <span data-i18n="emergency.nearest.police">Nearest Police Station</span>
+        </button>
+        <button type="button" class="btn btn-berry nearest-btn" data-query="medical store pharmacy">
+          <span data-i18n="emergency.nearest.medical">Nearest Medical Store</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <h3 data-i18n="emergency.section.helplines">Helpline Numbers</h3>
+      <div class="contact-list" style="margin-bottom:32px;">
+        <div class="contact-card">
+          <div><div class="name" data-i18n="emergency.contact.police">Police</div><div class="num">100</div></div>
+          <a class="btn btn-berry btn-sm" href="tel:100" data-i18n="emergency.call">Call</a>
+        </div>
+        <div class="contact-card">
+          <div><div class="name" data-i18n="emergency.contact.ambulance">Ambulance</div><div class="num">108</div></div>
+          <a class="btn btn-berry btn-sm" href="tel:108" data-i18n="emergency.call">Call</a>
+        </div>
+        <div class="contact-card">
+          <div><div class="name" data-i18n="emergency.contact.fire">Fire Brigade</div><div class="num">101</div></div>
+          <a class="btn btn-berry btn-sm" href="tel:101" data-i18n="emergency.call">Call</a>
+        </div>
+        <div class="contact-card">
+          <div><div class="name" data-i18n="emergency.contact.nationalEmergency">National Emergency Number</div><div class="num">112</div></div>
+          <a class="btn btn-berry btn-sm" href="tel:112" data-i18n="emergency.call">Call</a>
+        </div>
+        <div class="contact-card">
+          <div><div class="name" data-i18n="emergency.contact.womensHelpline">Women's Helpline</div><div class="num">1091</div></div>
+          <a class="btn btn-berry btn-sm" href="tel:1091" data-i18n="emergency.call">Call</a>
+        </div>
+      </div>
+
+      <h3 data-i18n="emergency.section.venue">Festival Control Room</h3>
+      <p class="field-hint" style="margin-bottom:12px; color: var(--berry-pop);" data-i18n="emergency.placeholder.note">Placeholder — replace with the real festival control room / venue contact before launch.</p>
+      <div class="contact-list" style="margin-bottom:32px;">
+        <div class="contact-card is-placeholder">
+          <div><div class="name" data-i18n="emergency.contact.controlRoom">Pune Ganeshotsav Control Room</div><div class="num" data-i18n="emergency.contact.numberNotAdded">Number not yet added</div></div>
+          <span class="btn btn-berry btn-sm" aria-disabled="true">—</span>
+        </div>
+      </div>
+
+      <h3 data-i18n="emergency.section.hospitals">Nearby Hospitals</h3>
+      <div class="contact-list" style="margin-bottom:32px;">
+        <div class="contact-card is-placeholder">
+          <div><div class="name" data-i18n="emergency.contact.sampleHospital1">Sample Hospital Name</div><div class="num" data-i18n="emergency.contact.numberNotAdded">Number not yet added</div></div>
+          <span class="btn btn-berry btn-sm" aria-disabled="true">—</span>
+        </div>
+        <div class="contact-card is-placeholder">
+          <div><div class="name" data-i18n="emergency.contact.sampleHospital2">Sample Hospital Name 2</div><div class="num" data-i18n="emergency.contact.numberNotAdded">Number not yet added</div></div>
+          <span class="btn btn-berry btn-sm" aria-disabled="true">—</span>
+        </div>
+      </div>
+
+      <h3 data-i18n="emergency.section.lostfound">Lost & Found</h3>
+      <div class="contact-list">
+        <div class="contact-card is-placeholder">
+          <div><div class="name" data-i18n="emergency.contact.lostFoundDesk">Lost & Found Desk</div><div class="num" data-i18n="emergency.contact.numberNotAdded">Number not yet added</div></div>
+          <span class="btn btn-berry btn-sm" aria-disabled="true">—</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:8px;"><span class="brand-badge" aria-hidden="true"><img src="images/kunal-tilak-cutout.png" alt=""></span>Pune Ganeshotsav 2026</div>
+        <p class="footer-about-body" data-i18n-html="footer.about.body">A Pune Ganeshotsav guide, presented by Kunal Tilak.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.links.title">Explore</h4>
+        <a href="mandals.html" data-i18n="nav.mandals">Mandals</a>
+        <a href="food.html" data-i18n="nav.food">Food Guide</a>
+        <a href="parking.html" data-i18n="nav.parking">Parking</a>
+        <a href="map.html" data-i18n="nav.map">Map</a>
+      </div>
+      <div>
+        <h4 data-i18n="footer.contact.title">Emergency</h4>
+        <a href="emergency.html" data-i18n="nav.emergency">Emergency</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.presentedBy">Presented by Kunal Tilak</span>
+      <span>© <span id="footer-year"></span> Pune Ganeshotsav 2026. <span data-i18n="footer.rights">All rights reserved.</span></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/translations.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+<script src="js/emergency.js"></script>
+<script>
+  window.MM_I18N.applyTranslations();
+  window.addEventListener("mm:langchange", function () { window.MM_I18N.applyTranslations(); });
+</script>
+</body>
+</html>

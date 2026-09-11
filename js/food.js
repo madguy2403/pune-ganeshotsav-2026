@@ -43,12 +43,15 @@
         '<div class="card-body">' +
           '<div style="display:flex; justify-content:space-between; align-items:start; gap:8px;">' +
             "<h3>" + name + "</h3>" +
-            '<span class="tag" style="white-space:nowrap;">★ ' + f.rating + "</span>" +
+            (f.rating ? '<span class="tag" style="white-space:nowrap;">★ ' + f.rating + "</span>" : "") +
           "</div>" +
           '<p class="card-meta">' + window.MM_ICONS.pin + "<span>" + f.area + "</span></p>" +
           '<div class="card-tags">' + tags + "</div>" +
           (specialty ? '<p class="card-meta">' + window.MM_ICONS.tag + "<span>" + specialty + "</span></p>" : "") +
-          '<div class="card-meta" style="display:flex; justify-content:space-between;"><span style="display:flex; align-items:center; gap:6px;">' + window.MM_ICONS.clock + f.hours + '</span><strong>' + f.price + "</strong></div>" +
+          '<div class="card-meta" style="display:flex; justify-content:space-between; align-items:flex-start;">' +
+            (f.hours ? '<span style="display:flex; align-items:flex-start; gap:6px;">' + window.MM_ICONS.clock + f.hours.split(" & ").join("<br>").replace(/\s*\(/, "<br>(") + "</span>" : "<span></span>") +
+            (f.price ? "<strong>" + f.price + "</strong>" : "<span></span>") +
+          "</div>" +
           '<div class="card-actions">' +
             '<a class="btn btn-berry btn-block btn-sm" href="' + directionsUrl(f.query) + '" target="_blank" rel="noopener" data-i18n="common.startNavigation">Start Google Navigation</a>' +
           "</div>" +

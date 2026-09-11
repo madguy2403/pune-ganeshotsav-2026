@@ -7,7 +7,10 @@
   var originInput = document.getElementById("origin-input");
   var originCoords = null; // "lat,lng" set by geolocation, cleared if the user edits the text field
   var useLocationBtn = document.getElementById("use-location-btn");
-  var destSelect = document.getElementById("destination-select");
+  var destInput = document.getElementById("destination-select");
+  var destList = document.getElementById("destination-list");
+  var destItems = [];
+  var selectedDestination = null; // { id, name, query } once the visitor picks a suggestion
   var customDest = document.getElementById("custom-destination");
   var statusEl = document.getElementById("map-status");
   var frameWrap = document.getElementById("map-frame-wrap");
@@ -36,50 +39,100 @@
     statusEl.textContent = "";
   }
 
-  function populateDestinations() {
+  // Builds the flat, filterable list backing the destination combobox —
+  // a native <select> with 50+ mandals meant endless scrolling on mobile,
+  // so typing narrows it down instead.
+  function buildDestItems() {
     var groups = [
-      { label: "Mandals", items: window.MANDALS || [] },
-      { label: "Food Spots", items: window.FOOD_SPOTS || [] },
-      { label: "Parking Zones", items: window.PARKING_SPOTS || [] }
+      { label: t("map.destination.group.mandals"), items: window.MANDALS || [] },
+      { label: t("map.destination.group.food"), items: window.FOOD_SPOTS || [] },
+      { label: t("map.destination.group.parking"), items: window.PARKING_SPOTS || [] }
     ];
+    destItems = [];
     groups.forEach(function (g) {
-      if (!g.items.length) return;
-      var optgroup = document.createElement("optgroup");
-      optgroup.label = g.label;
       g.items.forEach(function (item) {
-        var opt = document.createElement("option");
         var name = displayName(item);
-        opt.value = item.query || name;
-        opt.textContent = name;
-        opt.dataset.id = item.id;
-        optgroup.appendChild(opt);
+        destItems.push({ id: item.id, name: name, query: item.query || name, group: g.label });
       });
-      destSelect.appendChild(optgroup);
     });
+  }
+
+  function closeDestList() {
+    destList.hidden = true;
+    destInput.setAttribute("aria-expanded", "false");
+  }
+
+  function selectDestItem(item) {
+    selectedDestination = item;
+    destInput.value = item.name;
+    closeDestList();
+  }
+
+  function renderDestList(filterText) {
+    var q = (filterText || "").trim().toLowerCase();
+    var matches = q
+      ? destItems.filter(function (it) { return it.name.toLowerCase().indexOf(q) !== -1; })
+      : destItems;
+
+    destList.innerHTML = "";
+    if (!matches.length) {
+      var empty = document.createElement("div");
+      empty.className = "combobox-empty";
+      empty.textContent = t("map.destination.noMatches");
+      destList.appendChild(empty);
+      destList.hidden = false;
+      destInput.setAttribute("aria-expanded", "true");
+      return;
+    }
+
+    var lastGroup = null;
+    matches.forEach(function (it) {
+      if (it.group !== lastGroup) {
+        var groupEl = document.createElement("div");
+        groupEl.className = "combobox-group-label";
+        groupEl.textContent = it.group;
+        destList.appendChild(groupEl);
+        lastGroup = it.group;
+      }
+      var optEl = document.createElement("button");
+      optEl.type = "button";
+      optEl.className = "combobox-option";
+      optEl.setAttribute("role", "option");
+      optEl.textContent = it.name;
+      optEl.addEventListener("click", function () { selectDestItem(it); });
+      destList.appendChild(optEl);
+    });
+    destList.hidden = false;
+    destInput.setAttribute("aria-expanded", "true");
   }
 
   function preselectFromQueryString() {
     var params = new URLSearchParams(window.location.search);
     var toId = params.get("to");
     if (!toId) return;
-    var match = Array.prototype.find.call(destSelect.options, function (opt) {
-      return opt.dataset && opt.dataset.id === toId;
-    });
-    if (match) destSelect.value = match.value;
+    var match = destItems.find(function (it) { return it.id === toId; });
+    if (match) selectDestItem(match);
   }
 
-  if (destSelect) {
-    populateDestinations();
+  if (destInput && destList) {
+    buildDestItems();
     preselectFromQueryString();
+
+    destInput.addEventListener("focus", function () { renderDestList(destInput.value); });
+    destInput.addEventListener("input", function () {
+      selectedDestination = null;
+      renderDestList(destInput.value);
+    });
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest("#destination-combobox")) closeDestList();
+    });
+
     window.addEventListener("mm:langchange", function () {
-      var selectedId = destSelect.selectedOptions[0] && destSelect.selectedOptions[0].dataset.id;
-      destSelect.querySelectorAll("optgroup").forEach(function (g) { g.remove(); });
-      populateDestinations();
+      var selectedId = selectedDestination && selectedDestination.id;
+      buildDestItems();
       if (selectedId) {
-        var match = Array.prototype.find.call(destSelect.options, function (opt) {
-          return opt.dataset && opt.dataset.id === selectedId;
-        });
-        if (match) destSelect.value = match.value;
+        var match = destItems.find(function (it) { return it.id === selectedId; });
+        if (match) selectDestItem(match);
       }
     });
   }
@@ -114,7 +167,9 @@
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    var destination = (customDest && customDest.value.trim()) || (destSelect && destSelect.value) || "";
+    var destination = (customDest && customDest.value.trim()) ||
+      (selectedDestination && selectedDestination.query) ||
+      (destInput && destInput.value.trim()) || "";
     if (!destination) {
       setStatus("map.status.selectDestination", "error");
       return;

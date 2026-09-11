@@ -112,7 +112,7 @@ window.MANDALS = [
     area: "Kasba Peth, Pune",
     category: "Wooden Idol",
     tags: ["Wooden Idol", "Historic"],
-    established: "Restored 1906",
+    established: "1906",
     query: "Laxmi Road, Lunanagar, Kasba Peth, Pune, Maharashtra 411011",
     history: {
       en: "A historic temple of Maharashtra's Twashta Kasar (coppersmith) community, dedicated to Goddess Kalika. Restored in 1906, it is known for its 3-foot stone idol and intricate 20 kg silver artwork behind the sanctum.",
@@ -202,7 +202,7 @@ window.MANDALS = [
     area: "Budhwar Peth, Pune",
     category: "Must Visit",
     tags: ["Must Visit", "Grand Decoration"],
-    established: "Festival since 1952",
+    established: "1952",
     query: "Ganpati Bhavan, 250, Chhatrapati Shivaji Maharaj Rd, Budhwar Peth, Pune, Maharashtra 411002",
     history: {
       en: "Established by Shri Dagdusheth Halwai and his wife Lakshmibai, Pune's most revered Ganesh idol. Since 1952, the festival has been organized with devotion and social service, making it a symbol of faith and unity.",
@@ -292,7 +292,7 @@ window.MANDALS = [
     area: "Sadashiv Peth, Pune",
     category: "Must Visit",
     tags: ["Must Visit", "Historic"],
-    established: "Permanent idol since 1983",
+    established: "1983",
     query: "Nagnath Par, Phadke Howd, Sadashiv Peth, Pune, Maharashtra",
     history: {
       en: "One of Pune's oldest Ganesh mandals, established by Narahari Sheth Vasulkar. In 1983, a permanent idol was created according to Puranic traditions and continues to be a symbol of devotion.",
@@ -321,7 +321,7 @@ window.MANDALS = [
     area: "Rasta Peth, Pune",
     category: "Must Visit",
     tags: ["Must Visit", "Historic"],
-    established: "97th year (as recorded)",
+    established: "97th year",
     query: "359, Porwal Metallica, Rasta Peth, Pune, Maharashtra 411011",
     history: {
       en: "Located in Rasta Peth, Pune, one of the old Ganesh mandals known for its beautiful idols of Lord Ganesha and Sharada Mata.",
@@ -396,7 +396,7 @@ window.MANDALS = [
     area: "Pune",
     category: "Must Visit",
     tags: ["Must Visit", "Rare Idol"],
-    established: "Idol created 1977",
+    established: "1977",
     query: "Guruvarya Jagobadada Ganpati, Pune, Maharashtra",
     history: {
       en: "Established from Jagobadada Talim, a wrestling center started by Guruvarya Jagobadada, this famous Pune mandal is also known as Dashbhuja Ganpati (ten-handed Ganesha). Later, Dagdusheth Halwai developed it into a mandal and temple. The current idol was created in 1977 by the father of artist Nagesh Shimpi and took two years to complete.",
@@ -425,7 +425,7 @@ window.MANDALS = [
     area: "Somwar Peth, Pune",
     category: "Must Visit",
     tags: ["Must Visit", "Ancient Temple", "Rare Idol"],
-    established: "Built 1754",
+    established: "1754",
     query: "Somwar Peth, Pune, Maharashtra 411002",
     history: {
       en: "Built in 1754 by Mahant Bhimjigiri Gosavi, this historic temple in Somwar Peth is the city's best-sculptured temple and reflects late Peshwa architecture. Dedicated to the Tantra tradition, it is famous for its unique carvings, inscriptions, and the Trishund Mayureshwar Ganpati idol — a square-seated Lord Ganesha on a peacock with three trunks (touching a modakpatra, stomach, and Shakti's chin), carved from black basalt stone, with a hidden recumbent Sheshshayi Bhagavan idol behind it. The basement of the temple was used as a meditation space and houses Gosavi's samadhi.",
@@ -455,7 +455,7 @@ window.MANDALS = [
     area: "Shanipar Chowk, Pune",
     category: "Must Visit",
     tags: ["Must Visit", "Grand Decoration"],
-    established: "~131 years old (as recorded)",
+    established: "131 years old",
     query: "Near Shanipar Chowk, Pune, Maharashtra 411002",
     history: {
       en: "Established around 131 years ago, known for its grand and unique Ganesh festival displays. The temple setup features a large arrangement with a 60-foot length, 40-foot width, and a 35-foot-high entrance gate.",
@@ -516,7 +516,7 @@ window.MANDALS = [
     area: "Shaniwar Peth, Pune",
     category: "Standing Idol",
     tags: ["Standing Idol", "Historic"],
-    established: "Idol created 1982",
+    established: "1982",
     query: "Shaniwar Peth, Pune, Maharashtra",
     history: {
       en: "Originating from the Peshwa era, named after the wrestling training center (Veerachi Talim) where Peshwa sardars practiced near Shinde Para, Shaniwar Peth. The Ganesh idol created by renowned sculptor B. R. Khedkar in 1982 symbolizes bravery. The idol is presented in different forms every year and is known for its unique themes.",
@@ -589,7 +589,7 @@ window.MANDALS = [
     area: "Sarasbaug, Pune",
     category: "Ancient Temple",
     tags: ["Ancient Temple", "Historic"],
-    established: "Built 1784",
+    established: "1784",
     query: "Sarasbaug, Pune, Maharashtra 411030",
     history: {
       en: "One of Pune's most famous and sacred Ganesh temples. Built in 1784 by Shrimant Sawai Madhavrao Peshwa, located on an island in the lake developed by Shrimant Nanasaheb Peshwa near Parvati Hills. The original idol was made of Kurund stone, later replaced with a white marble idol installed in 1990. A small Ganesh museum was added to the temple complex in 1995.",
@@ -753,7 +753,7 @@ window.MANDALS = [
     area: "Dhayari, Pune",
     category: "Ancient Temple",
     tags: ["Ancient Temple", "Historic"],
-    established: "100 years old (as recorded)",
+    established: "100 years old",
     query: "Umbrya Ganpati Chowk, Sitaee Nagar, Dhayari, Khadewadi, Pune, Maharashtra 411041",
     history: {
       en: "Named after an old Umbar tree on Lakshmi Street, a 100-year-old small, quadrangular Ganesha idol. Shifted during road widening, now housed near Limaye's palace inside a building next to Peter England near the Maharaj Smriti plaque.",
@@ -798,7 +798,7 @@ window.MANDALS = [
     area: "Shaniwar Peth, Pune",
     category: "Ancient Temple",
     tags: ["Ancient Temple", "Historic"],
-    established: "Idol installed 1982",
+    established: "1982",
     query: "550, NC Kelkar Road, Shaniwar Peth, Pune, Maharashtra 411030",
     history: {
       en: "Inside the 'Ameya' society on NC Kelkar Road, Shaniwar Peth, managed by the Pavaskar family, who received the land from the Peshwas as a reward for Vedamurthy Mahadev Joshi Pavaskar's accurate prediction about Gangabai giving birth to Sawai Madhavrao. The stone idol, coated in shendur, was moved into the building in 1982.",

@@ -90,12 +90,11 @@
       '<article class="card' + (isManache ? " card-manache" : "") + '" data-id="' + m.id + '" data-name="' + searchIndex + '" data-area="' + m.area.toLowerCase() + '" data-locality="' + locality(m.area).toLowerCase() + '">' +
         mediaHTML(m, "card-media") +
         '<div class="card-body">' +
-          '<div class="card-title-row">' +
-            "<h3>" + name + "</h3>" +
-            '<div class="card-meta-inline-group">' + metaHTML(m) + "</div>" +
-          "</div>" +
-          '<div class="card-actions">' +
-            (historyText ? '<button type="button" class="btn btn-sm mandal-toggle">' + t("common.viewDetails") + "</button>" : "") +
+          "<h3>" + name + "</h3>" +
+          '<div class="card-info-grid">' +
+            '<p class="card-meta">' + window.MM_ICONS.pin + "<span>" + m.area + "</span></p>" +
+            (m.established ? '<p class="card-meta">' + window.MM_ICONS.calendar + "<span>" + localizeDigits(m.established) + "</span></p>" : "<span></span>") +
+            (historyText ? '<button type="button" class="btn btn-sm mandal-toggle">' + t("common.viewDetails") + "</button>" : "<span></span>") +
             '<a class="btn btn-berry btn-sm" href="' + directionsUrl(m.query) + '" target="_blank" rel="noopener">' + t("common.getDirections") + "</a>" +
           "</div>" +
         "</div>" +

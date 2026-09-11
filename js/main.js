@@ -54,32 +54,41 @@ window.MM_ICONS = {
   var statParking = document.getElementById("stat-parking");
   if (statParking && window.PARKING_SPOTS) statParking.textContent = roundedStat(window.PARKING_SPOTS.length);
 
-  var tourPopup = document.getElementById("tour-popup");
-  var tourPopupClose = document.getElementById("tour-popup-close");
-  if (tourPopup && tourPopupClose) {
-    if (sessionStorage.getItem("mm-tour-popup-dismissed")) {
-      tourPopup.style.display = "none";
-    }
-    tourPopupClose.addEventListener("click", function () {
-      tourPopup.style.display = "none";
-      sessionStorage.setItem("mm-tour-popup-dismissed", "1");
-    });
-  }
+  // Builds a real multi-stop Google Maps route through a set of mandals
+  // (origin omitted so Maps starts from the visitor's current location),
+  // capped at 8 stops to stay within the no-API-key directions URL's
+  // waypoint limit. The tour popup offers three preset stop lists.
+  var MANACHE_GANPATI_IDS = ["kasba-ganpati", "tambdi-jogeshwari", "guruji-talim", "tulshibaug-ganpati", "kesariwada-ganpati"];
+  var IMPORTANT_MANDAL_IDS = ["dagdusheth-halwai-ganpati", "bhausaheb-rangari-ganapati", "shanipar-mandal-trust", "akhil-mandai-mandal", "hutatma-babu-genu-mandal"];
 
-  // Builds a real multi-stop Google Maps route through the mandals (origin
-  // omitted so Maps starts from the visitor's current location), capped at
-  // 8 stops to stay within the no-API-key directions URL's waypoint limit.
-  var tourPlanLink = document.getElementById("tour-plan-link");
-  if (tourPlanLink && window.MANDALS && window.MANDALS.length) {
-    var stops = window.MANDALS.slice(0, 8).map(function (m) { return m.query; });
+  function buildTourUrl(mandalList) {
+    var stops = mandalList.slice(0, 8).map(function (m) { return m.query; });
     var destination = stops.pop();
-    var tourUrl = "https://www.google.com/maps/dir/?api=1" +
+    return "https://www.google.com/maps/dir/?api=1" +
       "&destination=" + encodeURIComponent(destination) +
       (stops.length ? "&waypoints=" + stops.map(encodeURIComponent).join("|") : "") +
       "&travelmode=driving";
-    tourPlanLink.href = tourUrl;
-    tourPlanLink.target = "_blank";
-    tourPlanLink.rel = "noopener";
+  }
+
+  function setupTourLink(id, mandalList) {
+    var link = document.getElementById(id);
+    if (link && mandalList.length) {
+      link.href = buildTourUrl(mandalList);
+      link.target = "_blank";
+      link.rel = "noopener";
+    }
+  }
+
+  if (window.MANDALS && window.MANDALS.length) {
+    var mandalsById = {};
+    window.MANDALS.forEach(function (m) { mandalsById[m.id] = m; });
+    var manacheList = MANACHE_GANPATI_IDS.map(function (id) { return mandalsById[id]; }).filter(Boolean);
+    var manacheImportantList = manacheList.concat(
+      IMPORTANT_MANDAL_IDS.map(function (id) { return mandalsById[id]; }).filter(Boolean)
+    );
+    setupTourLink("tour-plan-manache", manacheList);
+    setupTourLink("tour-plan-manache-important", manacheImportantList);
+    setupTourLink("tour-plan-all", window.MANDALS);
   }
 
   // Header search jumps to the Mandals directory (or filters in place if

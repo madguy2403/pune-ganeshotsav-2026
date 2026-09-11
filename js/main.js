@@ -91,6 +91,16 @@ window.MM_ICONS = {
     setupTourLink("tour-plan-all", window.MANDALS);
   }
 
+  var tourToggle = document.getElementById("tour-toggle");
+  var tourOptions = document.getElementById("tour-options");
+  if (tourToggle && tourOptions) {
+    tourToggle.addEventListener("click", function () {
+      var isOpen = tourToggle.getAttribute("aria-expanded") === "true";
+      tourToggle.setAttribute("aria-expanded", String(!isOpen));
+      tourOptions.hidden = isOpen;
+    });
+  }
+
   // Header search jumps to the Mandals directory (or filters in place if
   // already there) — the guide's primary content lives there, while Food
   // and Parking each have their own dedicated search box.

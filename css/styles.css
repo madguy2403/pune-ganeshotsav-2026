@@ -309,8 +309,18 @@ p { margin: 0 0 1em; }
   flex-wrap: wrap;
   gap: 12px;
   justify-content: flex-start;
+  margin-bottom: 12px;
+}
+#tour-toggle .icon-search { transition: transform 0.15s ease; }
+#tour-toggle[aria-expanded="true"] .icon-search { transform: rotate(90deg); }
+.hero-tour-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
   margin-bottom: 32px;
 }
+.hero-tour-options[hidden] { display: none; }
 .hero-top {
   display: flex;
   align-items: flex-end;

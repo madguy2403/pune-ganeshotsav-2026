@@ -291,8 +291,8 @@ p { margin: 0 0 1em; }
 }
 .hero-credit-row {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  gap: 14px;
   margin: 0 0 28px;
 }
 .hero-credit {
@@ -309,12 +309,13 @@ p { margin: 0 0 1em; }
 }
 .hero-credit-photo {
   flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   object-fit: cover;
   object-position: top center;
-  border: 1px solid rgba(255,255,255,0.7);
+  border: 2px solid rgba(255,255,255,0.8);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
 }
 .nearest-btn { font-size: 1.1rem; }
 .hero-actions {

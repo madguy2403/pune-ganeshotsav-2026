@@ -291,13 +291,14 @@ p { margin: 0 0 1em; }
 }
 .hero-credit {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
   gap: 10px;
   background: var(--champagne-glow);
   color: var(--orange-zest-dark);
   border: 1px solid rgba(255,255,255,0.5);
-  border-radius: 999px;
-  padding: 6px 16px 6px 6px;
+  border-radius: 20px;
+  padding: 10px 16px 10px 10px;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -305,10 +306,11 @@ p { margin: 0 0 1em; }
 }
 .hero-credit-photo {
   flex: 0 0 auto;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: top center;
   border: 1px solid rgba(255,255,255,0.7);
 }
 .nearest-btn { font-size: 1.1rem; }

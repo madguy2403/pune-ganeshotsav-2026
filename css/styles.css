@@ -309,7 +309,6 @@ p { margin: 0 0 1em; }
   height: 28px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 15%;
   border: 1px solid rgba(255,255,255,0.7);
 }
 .nearest-btn { font-size: 1.1rem; }
